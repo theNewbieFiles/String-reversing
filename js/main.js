@@ -5,6 +5,7 @@ let outputArea = document.getElementById("outputString");
 //get buttons
 let basic_button = document.getElementById('basic');
 let stack_button = document.getElementById('stack');
+let swap_button = document.getElementById('swap');
 
 
 //click events
@@ -15,6 +16,10 @@ basic_button.addEventListener('mouseup', function (input) {
 stack_button.addEventListener('mouseup', function (input) {
     outputArea.value = stackReverse(inputArea.value);
 });
+
+swap_button.addEventListener('mouseup', function (input) {
+    outputArea.value = swapReverse(inputArea.value);
+})
 
 
 //types of reversing
@@ -64,23 +69,38 @@ function stackReverse(Input) {
 
 
 /**
- * this method uses 2 pointers and swaps the characters between them
+ * this method uses 2 pointers and swaps the characters between them,
+ * then moves the lower one up and the higher one down until they meet in the middle
  *
  * @param Input {string}
  * @returns {string}
  */
 function swapReverse(Input) {
+    //turn the string into an array
+    let output = Input.split("");
+
 
     //create temp var outside loop to prevent creating it each loop
     let temp;
 
-    for(let i = 0, h = Input.length; i < h; i += 1, h -= 1){
-        temp = Input[i];
-        Input[i] = Input[h];
-        Input[h] = temp;
+    //loop thur the array
+    for(let i = 0, h = output.length-1; i < h; i += 1, h -= 1){
+
+        temp = output[i];
+        output[i] = output[h];
+        output[h] = temp;
+
+
+    }
+    //turn the array back into a string
+    let outputString = "";
+    for(let j = 0; j < output.length; j += 1){
+        outputString += output[j];
     }
 
-    return Input;
+
+
+    return outputString;
 }
 
 

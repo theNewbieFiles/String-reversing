@@ -1,0 +1,20 @@
+#wrapper{
+    margin: auto;
+    width: 1200px;
+    height: 800px;
+    background-color: lightblue;
+}
+
+.textAreaWrapper{
+    width: 100%;
+}
+
+.button{
+    width: 100px;
+    height: 30px;
+}
+.button:hover{
+    background-color: #47565e;
+    cursor: pointer;
+    color: white;
+}
